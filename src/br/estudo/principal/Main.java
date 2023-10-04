@@ -11,8 +11,9 @@ public class Main {
 		Scanner in = new Scanner(System.in);
 
 		while (tabuleiro.getJogadas() < 9) {
-			System.out.println("Jogador " + tabuleiro.getJogadorAtual() + ", insira a linha (0-2) e a coluna (0-2): ");
+			System.out.printf("Jogador \u001B[31m%c\u001B[0m insira a linha (0-2): ", tabuleiro.getJogadorAtual() );
 			int linha = in.nextInt();
+			System.out.printf("Jogador \u001B[31m%c\u001B[0m insira a coluna (0-2): ", tabuleiro.getJogadorAtual() );
 			int coluna = in.nextInt();
 			tabuleiro.receberPosicao(linha, coluna);
 			if (tabuleiro.verificarVencedor() != '-') {

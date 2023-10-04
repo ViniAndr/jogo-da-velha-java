@@ -26,7 +26,11 @@ public class Tabuleiro {
 	}
 
 	public void mostrarTabela() {
+		//System.out.println("  0  1  2");
+		System.out.println("  0  1  2 ");
 		for (int i = 0; i < tabuleiro.length; i++) {
+			//System.out.print(i);
+			System.out.print(i);
 			for (int j = 0; j < tabuleiro.length; j++) {
 				System.out.print("[" + tabuleiro[i][j] + "]");
 			}
@@ -43,9 +47,9 @@ public class Tabuleiro {
 			if (linha < 3 && coluna < 3) {
 				colocarNaPosicao(linha, coluna);
 			} else
-				System.out.println("Digite uma posição menor que o tamanho do tabuleiro");
+				System.out.printf("%nDigite uma posição menor que o tamanho do tabuleiro%n");
 		} else
-			System.out.println("Digite uma posição que ainda não foi usada");
+			System.out.printf("%nDigite uma posição que ainda não foi usada%n%n");
 	}
 
 	public void colocarNaPosicao(int linha, int coluna) {
@@ -59,7 +63,7 @@ public class Tabuleiro {
 		// verificar na linha
 		for (int linha = 0; linha < 3; linha++) {
 			if (tabuleiro[linha][0] == tabuleiro[linha][1] && tabuleiro[linha][1] == tabuleiro[linha][2]
-					&& tabuleiro[linha][0] != '-')
+					&& tabuleiro[linha][0] != '-')	
 				return tabuleiro[linha][0];
 		}
 
