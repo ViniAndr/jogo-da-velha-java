@@ -3,16 +3,16 @@ package br.estudo.entidades;
 public class Tabuleiro {
 	private char[][] tabuleiro = new char[3][3];
 	private char jogadorAtual = 'X';
-	private boolean posicaoOk = false;
+	private int jogadas = 0;
 
 	public Tabuleiro() {
 		criarTabuleiro();
 	}
 
-	public boolean getPosicaoOk() {
-		return posicaoOk;
+	public int getJogadas() {
+		return jogadas;
 	}
-	
+
 	public char getJogadorAtual() {
 		return jogadorAtual;
 	}
@@ -41,18 +41,18 @@ public class Tabuleiro {
 	public void receberPosicao(int linha, int coluna) {
 		if (tabuleiro[linha][coluna] == '-') {
 			if (linha < 3 && coluna < 3) {
-				posicaoOk = true;
 				colocarNaPosicao(linha, coluna);
 			} else
 				System.out.println("Digite uma posição menor que o tamanho do tabuleiro");
 		} else
-			System.out.println("Digite uma posição que ainda não usada");
+			System.out.println("Digite uma posição que ainda não foi usada");
 	}
 
 	public void colocarNaPosicao(int linha, int coluna) {
 		tabuleiro[linha][coluna] = jogadorAtual;
 		trocarJogador();
 		mostrarTabela();
+		jogadas++;
 	}
 
 	public char verificarVencedor() {

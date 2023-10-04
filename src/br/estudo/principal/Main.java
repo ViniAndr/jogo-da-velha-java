@@ -10,16 +10,17 @@ public class Main {
 		Tabuleiro tabuleiro = new Tabuleiro();
 		Scanner in = new Scanner(System.in);
 
-		do {
+		while (tabuleiro.getJogadas() < 9) {
 			System.out.println("Jogador " + tabuleiro.getJogadorAtual() + ", insira a linha (0-2) e a coluna (0-2): ");
 			int linha = in.nextInt();
 			int coluna = in.nextInt();
 			tabuleiro.receberPosicao(linha, coluna);
 			if (tabuleiro.verificarVencedor() != '-') {
-				System.out.println("Jogador " + tabuleiro.getJogadorAtual() + "Ganhou a rodada");
+				System.out.println("Jogador " + tabuleiro.verificarVencedor() + " Ganhou a rodada");
 				break;
 			}
-		} while (tabuleiro.getPosicaoOk());
+		}
+		;
 
 		in.close();
 	}
